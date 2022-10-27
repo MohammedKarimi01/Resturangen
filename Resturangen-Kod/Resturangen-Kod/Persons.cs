@@ -23,8 +23,8 @@ namespace Resturangen_Kod
         }
         public static void CreatingPersons()
         {
-            List<Persons> persons = new List<Persons>();
-            string[] ArrayNameList = { "Mohammed", "Thom", "Bilal", "Daniel", "Erik", "Elias", "Emma", "Kenneth", "Andersson", "Johansson", "Karlssson","Nillsson", "Eriksson"
+            List<Persons> Guests = new List<Persons>();
+            string[] ArrayNameList = {"Andersson", "Johansson", "Karlssson","Nillsson", "Eriksson"
             , "Larsson","Olsson","Persson","Svensson","Gustavsson","Petterson","Johnsson","Jansson","Hansson","Bengtsson","Jönsson","Lindberg","Jakobsson","Magnusson","´Lindström"
             ,"Olofsson","Lindkvist","Lindgren","Berg","Axelsson","Bergström","Lundberg","Lind","Lundgren","Lundqvist","Mattsson","Berglund","Fredriksson","Samberg","Henriksson"
             ,"Ali","Forsberg","Sjöberg","Walin","Engström","Eklund","Danielsson","Lundin","Håkansson","Björk","Bergman","Gunnarsson","Wikström","Holm","Samuelsson","Isaksson"
@@ -32,7 +32,8 @@ namespace Resturangen_Kod
             ,"Viklund","Björklund","Eliasson","Berggren","Pålsson","Sandström","Nordin","Lund","Falk","Ström","Åberg","Ekström","Hermansson"};
             foreach (string name in ArrayNameList)
             {
-                persons.Add(new Persons(name));
+                Guests.Add(new Persons(name));
+                Console.WriteLine(name);
             }
          
         }
@@ -46,12 +47,14 @@ namespace Resturangen_Kod
         }
         public static void CreatingChefs()
         {
-            List<Persons> persons = new List<Persons>();
-            foreach (string name in ArrayNameList)
+            List<Persons> Chefs = new List<Persons>();
+            string[] ChefNames = { "Mohammed", "Thom", "Bilal", "Daniel", "Erik", };
+            foreach (string name in ChefNames)
             {
-
+                Chefs.Add(new Persons(name));
+                Console.WriteLine(name);
+                
             }
-
         }
         // Kokens kompetens är en rating från 1-10
         public int Competence { get; set; }
@@ -62,6 +65,17 @@ namespace Resturangen_Kod
         public Waiters(string name) : base(name)
         {
 
+        }
+        public static void CreatingWaiter()
+        {
+            List<Persons> Waiters = new List<Persons>();
+            string[] WaiterNames = { "Elias", "Emma", "Kenneth", };
+            foreach(string name in WaiterNames)
+            {
+                Waiters.Add(new Persons(name));
+                Console.WriteLine(name);
+
+            }
         }
 
         // Servitörens Service level är en rating från 1-10

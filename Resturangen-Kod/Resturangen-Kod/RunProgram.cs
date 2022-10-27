@@ -10,7 +10,9 @@ namespace Resturangen_Kod
     {
         public static void StartProgram()
         {
-            
+            //Persons.CreatingPersons();
+            //Chefs.CreatingChefs();
+            //Waiters.CreatingWaiter();
         }
     }
 }

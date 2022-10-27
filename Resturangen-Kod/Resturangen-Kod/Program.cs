@@ -7,7 +7,8 @@ namespace Resturangen_Kod
         static void Main(string[] args)
         {
 
-            Tabels.Draw();
+            //Tabels.Draw();
+            RunProgram.StartProgram();
 
         }
     }
