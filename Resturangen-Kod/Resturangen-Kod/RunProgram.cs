@@ -8,6 +8,7 @@ namespace Resturangen_Kod
 {
     internal class RunProgram
     {
+
         public static void StartProgram()
         {
             //Persons.CreatingPersons();
