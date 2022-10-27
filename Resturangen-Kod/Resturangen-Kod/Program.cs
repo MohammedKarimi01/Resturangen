@@ -1,2 +1,14 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Resturangen_Kod;
+
+namespace Resturangen_Kod
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Tabels.Draw();
+
+        }
+    }
+}
