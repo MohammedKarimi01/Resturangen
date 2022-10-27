@@ -11,6 +11,7 @@ namespace Resturangen_Kod
 
         public static void StartProgram()
         {
+            //Använder raderna under bara för att testa saker i Person klassen.
             //Persons.CreatingPersons();
             //Chefs.CreatingChefs();
             //Waiters.CreatingWaiter();
