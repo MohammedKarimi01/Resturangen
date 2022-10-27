@@ -8,5 +8,9 @@ namespace Resturangen_Kod
 {
     internal class Persons
     {
+        public int GroupSize { get; set; }
+        public int Chefs { get; set; }
+        public int Waiters { get; set; }
+        public int Guests { get; set; }
     }
 }

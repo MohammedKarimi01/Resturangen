@@ -8,5 +8,7 @@ namespace Resturangen_Kod
 {
     internal class Tabels
     {
+        public int Tables { get; set; }
+        public int TableSize { get; set; }
     }
 }
