@@ -11,18 +11,16 @@ namespace Resturangen_Kod
     {
         public int Tables { get; set; }
         public int TableSize { get; set; }
-        public static void Draw()
+        public virtual void Draw()
         {
-            //int testar2 = 79;
-            //int testar = 3;
-            string[] waiter = { "Waiter1", "Waiter2", "Waiter3" };
+            string[] waiter = { "Waiter1", "Waiter2", "Waiter3" }; // ba ett test
             string entre = "Entre";
             int sidolängd2 = 0;
             string[,] drawArray = new string[50, 5];
             string[,] drawArray2 = new string[30, 2];
             string guests = "Empty";
             string guesttable2 = "Not Booked";
-            string guest2 = "E0";
+            //string[] guest2 = { "E1", "E2", "E3", "E4"};
             int sidolängd = 0;
             string name = "Not Booked";
             string FrameSide = "|";
@@ -144,4 +142,8 @@ namespace Resturangen_Kod
             Console.WriteLine("| " + entre + " |");
         }
     }
+    //class Fyll : Tabels
+    //{
+
+    //}
 }
