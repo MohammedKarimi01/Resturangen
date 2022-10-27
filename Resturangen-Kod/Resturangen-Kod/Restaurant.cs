@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Resturangen_Kod
 {
-    internal class RunProgram
+    internal class Restaurant
     {
-        public static void StartProgram()
-        {
-            
-        }
+
     }
 }

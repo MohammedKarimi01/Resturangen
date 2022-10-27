@@ -23,6 +23,7 @@ namespace Resturangen_Kod
             string FrameSide = "|";
             string FrameTop = "-";
             string kitchen = "Kitchen";
+
             Console.SetCursorPosition((Console.WindowWidth - kitchen.Length) / 2, Console.CursorTop);
             Console.WriteLine("| " + kitchen + " |");
             Console.SetCursorPosition((Console.WindowWidth - FrameTop.Length - 6) / 2, Console.CursorTop);
