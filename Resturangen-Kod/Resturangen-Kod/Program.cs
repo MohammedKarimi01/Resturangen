@@ -1,3 +1,14 @@
 ﻿using Resturangen_Kod;
 
-RunProgram.StartProgram();
+namespace Resturangen_Kod
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Tabels.Draw();
+
+        }
+    }
+}
