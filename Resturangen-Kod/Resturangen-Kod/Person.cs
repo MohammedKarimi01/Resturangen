@@ -6,19 +6,20 @@ using System.Threading.Tasks;
 
 namespace Resturangen_Kod
 {
-    internal class Persons
+    internal class Person
     {
         public string Names { get; set; }
+        //public List<Group> Groups = new List<Group>();
         //List<String> NameList = new List<String>();
-        public Persons (string name)
+        public Person (string name)
         {
             Names = name;
         }
         public static void CreatingPersons()
         {
-            List<Persons> Guests = new List<Persons>();
+            List<Person> Guests = new List<Person>();
             string[] ArrayNameList = {"Andersson", "Johansson", "Karlssson","Nillsson", "Eriksson"
-            ,"Larsson","Olsson","Persson","Svensson","Gustavsson","Petterson","Johnsson","Jansson","Hansson","Bengtsson","Jönsson","Lindberg","Jakobsson","Magnusson","´Lindström"
+            ,"Larsson","Olsson","Persson","Svensson","Gustavsson","Petterson","Johnsson","Jansson","Hansson","Bengtsson","Jönsson","Lindberg","Jakobsson","Magnusson","Lindström"
             ,"Olofsson","Lindkvist","Lindgren","Berg","Axelsson","Bergström","Lundberg","Lind","Lundgren","Lundqvist","Mattsson","Berglund","Fredriksson","Samberg","Henriksson"
             ,"Ali","Forsberg","Sjöberg","Walin","Engström","Eklund","Danielsson","Lundin","Håkansson","Björk","Bergman","Gunnarsson","Wikström","Holm","Samuelsson","Isaksson"
             ,"Fransson","Bergkvist","Nyström","Holmberg","Arvidsson","Lövgren","Söderberg","Nyberg","Ahmed","Blomqvist","Classon","Nordström","Hassan","Mårtensson","Lundström"
@@ -29,14 +30,40 @@ namespace Resturangen_Kod
             foreach (string name in ArrayNameList)
             {
                 balance = rnd.Next(50, 350);
-                Guests.Add(new Persons(name));
+                Guests.Add(new Person(name));
                 Console.WriteLine(name +" har "+ balance + "kr");
+            }
+            Random random = new Random();
+            int groupsize = random.Next(1, 5);
+            Group group = new Group();
+            Groups.Add(group);
+            foreach (Person p in Guests)
+            {
+
+                int counter = 0;
+                
+                
+
+
+
+
+
+
+                while (counter < groupsize)
+                {
+                    for (int i = 0; i < groupsize; i++)
+                    {
+                        Groups.Add(new Guests);
+                    }
+                }
             }
          
         }
+
     }
     
-    internal class Chefs : Persons
+
+    internal class Chefs : Person
     {
         // Kockens kompetens är en rating från 1-10
         public int Competence { get; set; }
@@ -46,7 +73,7 @@ namespace Resturangen_Kod
         }
         public static void CreatingChefs()
         {
-            List<Persons> Chefs = new List<Persons>();
+            List<Person> Chefs = new List<Person>();
             string[] ChefNames = { "Mohammed", "Thom", "Bilal", "Daniel", "Erik", };
             Random rnd = new Random();
 
@@ -57,11 +84,11 @@ namespace Resturangen_Kod
                 {
                     _Competence = rnd.Next(5, 11);
                 }
-                Chefs.Add(new Persons(name));
+                Chefs.Add(new Person(name));
             }
         }
     }
-    internal class Waiters : Persons
+    internal class Waiters : Person
     {
         public Waiters(string name, int servicelevel) : base(name)
         {
@@ -74,7 +101,7 @@ namespace Resturangen_Kod
         //}
         public static void CreatingWaiter()
         {
-            List<Persons> Waiters = new List<Persons>();
+            List<Person> Waiters = new List<Person>();
             string[] WaiterNames = { "Elias", "Emma", "Kenneth", };
             Random rnd = new Random();
             foreach (string name in WaiterNames)
@@ -84,7 +111,7 @@ namespace Resturangen_Kod
                 {
                     _ServiceLvL = rnd.Next(5,11);
                 }
-                Waiters.Add(new Persons(name));
+                Waiters.Add(new Person(name));
             }
         }
 
@@ -92,7 +119,7 @@ namespace Resturangen_Kod
         public int ServiceLevel { get; set; }
 
     }
-    internal class Guests : Persons
+    internal class Guests : Person
     {
 
         public Guests(string name, int groupsize, int amountofmoney, bool satisfaction) : base(name)
@@ -109,6 +136,15 @@ namespace Resturangen_Kod
             int amountofmoney = 0;
             amountofmoney = rnd.Next(100,1000);
             return amountofmoney;
+        }
+        public static int GetGroups(int groupsize, List<string> groups)
+        {
+            Random rnd = new Random();
+            int _groupsize = 0;
+            _groupsize = rnd.Next(1, 5);
+            groups.Add();
+
+            return _groupsize;
         }
 
         public int GroupSize { get; set; }

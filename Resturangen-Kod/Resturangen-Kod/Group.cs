@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Resturangen_Kod
 {
-    internal class Restaurant
+    internal class Group
     {
-        public List<Group> Groups = new List<Group>();
+        public List<Person> Persons { get; set; }
     }
 }
