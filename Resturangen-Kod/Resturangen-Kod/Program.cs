@@ -8,7 +8,7 @@ namespace Resturangen_Kod
         {
 
             //Tabels.Draw();
-            //RunProgram.StartProgram();
+            RunProgram.StartProgram();
 
         }
     }
