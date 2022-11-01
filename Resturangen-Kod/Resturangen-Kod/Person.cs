@@ -15,48 +15,55 @@ namespace Resturangen_Kod
         {
             Names = name;
         }
-        public static void CreatingPersons()
+        public static string[] GetNames()
         {
-            List<Person> Guests = new List<Person>();
-            string[] ArrayNameList = {"Andersson", "Johansson", "Karlssson","Nillsson", "Eriksson"
+            string[] NameList = {"Andersson", "Johansson", "Karlssson","Nillsson", "Eriksson"
             ,"Larsson","Olsson","Persson","Svensson","Gustavsson","Petterson","Johnsson","Jansson","Hansson","Bengtsson","Jönsson","Lindberg","Jakobsson","Magnusson","Lindström"
             ,"Olofsson","Lindkvist","Lindgren","Berg","Axelsson","Bergström","Lundberg","Lind","Lundgren","Lundqvist","Mattsson","Berglund","Fredriksson","Samberg","Henriksson"
             ,"Ali","Forsberg","Sjöberg","Walin","Engström","Eklund","Danielsson","Lundin","Håkansson","Björk","Bergman","Gunnarsson","Wikström","Holm","Samuelsson","Isaksson"
             ,"Fransson","Bergkvist","Nyström","Holmberg","Arvidsson","Lövgren","Söderberg","Nyberg","Ahmed","Blomqvist","Classon","Nordström","Hassan","Mårtensson","Lundström"
             ,"Viklund","Björklund","Eliasson","Berggren","Pålsson","Sandström","Nordin","Lund","Falk","Ström","Åberg","Ekström","Hermansson"};
+
+            return NameList;
+        }
+
+        public static void CreatingPersons(string[] NameList)
+        {
+            List<Person> Guests = new List<Person>();
+            
             int balance = 0;
             Random rnd = new Random();
             
-            foreach (string name in ArrayNameList)
+            foreach (string name in NameList)
             {
                 balance = rnd.Next(50, 350);
                 Guests.Add(new Person(name));
                 Console.WriteLine(name +" har "+ balance + "kr");
             }
-            Random random = new Random();
-            int groupsize = random.Next(1, 5);
-            Group group = new Group();
-            Groups.Add(group);
-            foreach (Person p in Guests)
-            {
+            //Random random = new Random();
+            //int groupsize = random.Next(1, 5);
+            //Group group = new Group();
+            //Groups.Add(group);
+            //foreach (Person p in Guests)
+            //{
 
-                int counter = 0;
-                
-                
+            //    int counter = 0;
 
 
 
 
 
 
-                while (counter < groupsize)
-                {
-                    for (int i = 0; i < groupsize; i++)
-                    {
-                        Groups.Add(new Guests);
-                    }
-                }
-            }
+
+
+            //    while (counter < groupsize)
+            //    {
+            //        for (int i = 0; i < groupsize; i++)
+            //        {
+            //            Groups.Add(new Guests);
+            //        }
+            //    }
+            //}
          
         }
 
@@ -137,15 +144,7 @@ namespace Resturangen_Kod
             amountofmoney = rnd.Next(100,1000);
             return amountofmoney;
         }
-        public static int GetGroups(int groupsize, List<string> groups)
-        {
-            Random rnd = new Random();
-            int _groupsize = 0;
-            _groupsize = rnd.Next(1, 5);
-            groups.Add();
-
-            return _groupsize;
-        }
+      
 
         public int GroupSize { get; set; }
         public int AmoutOfMoney { get; set; }
