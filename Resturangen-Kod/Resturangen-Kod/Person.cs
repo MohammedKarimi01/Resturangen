@@ -8,12 +8,12 @@ namespace Resturangen_Kod
 {
     internal class Person
     {
-        public string Names { get; set; }
+        public string Name { get; set; }
         //public List<Group> Groups = new List<Group>();
         //List<String> NameList = new List<String>();
         public Person (string name)
         {
-            Names = name;
+            Name = name;
         }
         public static string[] GetNames()
         {
@@ -27,7 +27,7 @@ namespace Resturangen_Kod
             return NameList;
         }
 
-        public static void CreatingPersons(string[] NameList)
+        public  static List<Person> CreatingGuests(string[] NameList)
         {
             List<Person> Guests = new List<Person>();
             
@@ -37,39 +37,13 @@ namespace Resturangen_Kod
             foreach (string name in NameList)
             {
                 balance = rnd.Next(50, 350);
-                Guests.Add(new Person(name));
-                Console.WriteLine(name +" har "+ balance + "kr");
+                Guests.Add(new Person(name + " " + balance)); 
             }
-            //Random random = new Random();
-            //int groupsize = random.Next(1, 5);
-            //Group group = new Group();
-            //Groups.Add(group);
-            //foreach (Person p in Guests)
-            //{
-
-            //    int counter = 0;
-
-
-
-
-
-
-
-
-            //    while (counter < groupsize)
-            //    {
-            //        for (int i = 0; i < groupsize; i++)
-            //        {
-            //            Groups.Add(new Guests);
-            //        }
-            //    }
-            //}
-         
+            return Guests;
         }
-
     }
     
-
+        
     internal class Chefs : Person
     {
         // Kockens kompetens är en rating från 1-10
@@ -129,25 +103,24 @@ namespace Resturangen_Kod
     internal class Guests : Person
     {
 
-        public Guests(string name, int groupsize, int amountofmoney, bool satisfaction) : base(name)
+        public Guests(string name, int balance, bool satisfaction) : base(name)
         {
-            Names = name;
-            GroupSize = groupsize;
-            AmoutOfMoney = amountofmoney;
+            Name = name;
+            Balance = balance;
             Satisfaction = satisfaction;
 
         }
-        public static int GetMoney()
-        {
-            Random rnd = new Random();
-            int amountofmoney = 0;
-            amountofmoney = rnd.Next(100,1000);
-            return amountofmoney;
-        }
+        //public static int GetMoney()
+        //{
+        //    Random rnd = new Random();
+        //    int amountofmoney = 0;
+        //    amountofmoney = rnd.Next(100,1000);
+        //    return amountofmoney;
+        //}
       
 
         public int GroupSize { get; set; }
-        public int AmoutOfMoney { get; set; }
+        public int Balance { get; set; }
         public bool Satisfaction { get; set; }
 
         //Ändrar på propen senare.

@@ -12,7 +12,7 @@ namespace Resturangen_Kod
 
         public static void StartProgram()
         {
-            Restaurant.CreatingGroups();
+              Restaurant.CreatingGroups();
             //Persons.CreatingPersons();
             //Chefs.CreatingChefs();
             //Waiters.CreatingWaiter();

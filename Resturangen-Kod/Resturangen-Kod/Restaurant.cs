@@ -13,78 +13,38 @@ namespace Resturangen_Kod
         public static void CreatingGroups()
         {
             string[] names = Person.GetNames();
-            int nrOfGroups = 30;
+            List<Person> Guests = Person.CreatingGuests(names);
             Random rnd = new Random();
+
+            int nrOfGroups = 30;
             int peoplePerGroup = 0;
             int counter = 0;
-            //while (true)
-            //{
-            //    peoplePerGroup = rnd.Next(1, 5);
-            //    for (int i = 0; i < nrOfGroups; i++)
-            //    {
 
-            //        string[] groupOne = new string[peoplePerGroup];
-            //        int personCount = 0;
-            //        for (int j = i; j < names.Length; j += nrOfGroups)
-            //        {
-            //            groupOne[personCount] = names[j] + " - " + j;
-            //            personCount++;
-            //        }
+            int grpSize = 1;
 
-            //        Array.Sort(groupOne);
-            //        for (int k = 0; k < personCount; k++)
-            //        {
-            //            Console.WriteLine(groupOne[k]);
-            //        }
-            //        Console.WriteLine();
-            //    }
-            //}
+
+            //Tar in Namn, skapar grupper på en random storlek, samt ger varje person en balance
             for (int i = 0; i < nrOfGroups; i++)
             {
                 peoplePerGroup = rnd.Next(1, 5);
                 Console.WriteLine();
                 for (int j = 0; j < peoplePerGroup; j++)
                 {
-                    Console.WriteLine(names[counter]);
+
+                    Console.WriteLine(Guests[counter].Name + " " + grpSize);
+                    
+                    Console.WriteLine(Guests);
+                    grpSize++;
                     counter++;
                 }
+                grpSize = 1;
+                Console.WriteLine("------------------");
             }
 
 
 
         }
-
-
-
-
-
-
-
-
-        //public static int GetGroupsize()
-        //{
-        //    int Groupsize = 0;
-        //    Random rnd = new Random();
-        //    Groupsize = rnd.Next(1, 5);
-
-        //    return Groupsize;
-
-        //}
-        //public static List<Group> MakeGroups()
-        //{
-        //    List<Group> groups = new List<Group>();
-        //    groups.Add(new Group(Groupsize));
-        //    return groups;
-        //}
-        //public static void PrintGroups(List<Group> groups)
-        //{
-        //    Console.WriteLine(groups);
-        //}
-        //public Restaurant(int groupsize)
-        //{
-        //    Groupsize = groupsize;
-        //}
-
+       
     }
 
 
