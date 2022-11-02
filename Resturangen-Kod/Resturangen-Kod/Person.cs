@@ -9,8 +9,6 @@ namespace Resturangen_Kod
     internal class Person
     {
         public string Name { get; set; }
-        //public List<Group> Groups = new List<Group>();
-        //List<String> NameList = new List<String>();
         public Person (string name)
         {
             Name = name;
@@ -69,18 +67,13 @@ namespace Resturangen_Kod
             }
         }
     }
-    internal class Waiters : Person
+    internal class Waiter : Person
     {
-        public Waiters(string name, int servicelevel) : base(name)
+        public Waiter(string name, int servicelevel) : base(name)
         {
             ServiceLevel = servicelevel;
         }
-        //public static int WaiterServiceLvL()
-        //{
-
-        //    return _ServiceLvL;
-        //}
-        public static void CreatingWaiter()
+        public static List<Person> CreatingWaiter()
         {
             List<Person> Waiters = new List<Person>();
             string[] WaiterNames = { "Elias", "Emma", "Kenneth", };
@@ -92,8 +85,9 @@ namespace Resturangen_Kod
                 {
                     _ServiceLvL = rnd.Next(5,11);
                 }
-                Waiters.Add(new Person(name));
+                Waiters.Add(new Person(name + " " + _ServiceLvL));
             }
+            return Waiters;
         }
 
         // Servitörens Service level är en rating från 1-10
