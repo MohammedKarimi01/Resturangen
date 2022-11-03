@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Collections;
 namespace Resturangen_Kod
 {
     internal class Tabels
@@ -167,7 +167,7 @@ namespace Resturangen_Kod
         {
             string[] guests = { "+1", "+2", "+3", "Empty" };
             Random rnd = new Random();
-            int nameRandom = rnd.Next(0, 10);
+            int nameRandom = rnd.Next(0, booked.Length);
             int c = rnd.Next(0, 3);
             int sidolängd = 0;
             string FrameTop = "-";
@@ -246,7 +246,7 @@ namespace Resturangen_Kod
         {
             string[] guests = { "+1", "+2", "+3", "Empty" };
             Random rnd = new Random();
-            int nameRandom = rnd.Next(0, 10);
+            int nameRandom = rnd.Next(0, booked.Length);
             int c = rnd.Next(0, 3);
             int sidolängd2 = 0;
             string FrameTop = "-";
@@ -271,7 +271,7 @@ namespace Resturangen_Kod
                 if (o == 0)
                 {
                     Console.SetCursorPosition((Console.WindowWidth + 39) / 2, Console.CursorTop);
-
+                    
                     Console.Write("| " + booked[nameRandom]);
                     if (c < 1)
                     {
