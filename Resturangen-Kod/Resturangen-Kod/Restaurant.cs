@@ -27,20 +27,38 @@ namespace Resturangen_Kod
             {
                 peoplePerGroup = rnd.Next(1, 5);
                 Console.WriteLine();
+                Console.WriteLine("Grupp: " + i);
                 for (int j = 0; j < peoplePerGroup; j++)
                 {
+
+                    if (counter < Guests.Count)
+                    { 
                     Console.WriteLine(Guests[counter].Name + " " + grpSize);
                     //Console.WriteLine(LobbyGroups[counter].Name + " " + grpSize);
-                    //LobbyGroups.Add(Guests[counter]);
+                    LobbyGroups.Add(Guests[counter]);
                     grpSize++;
                     counter++;
+                    }
+                    else if(counter >= Guests.Count)
+                    {
+                        Console.WriteLine("Slut på gäster");
+                        break;
+                    }
                 }
+                List<int> ints = new List<int>();
+                grpSize -= 1;
+                ints.Add(grpSize);
                 grpSize = 1;
-                
+                foreach (int item in ints)
+                {
+                    Console.WriteLine(item);
+
+                }
             }
             return Guests;
 
         }
+
     }
 
     public class Lobby
@@ -58,10 +76,10 @@ namespace Resturangen_Kod
                 GroupCheck++;
             }
         }
-        //Ropa hit waiters.
-        //Ropa hit gäster.
-        //Waiters kollar storlek på grupp
-        //Waitters kollar om det finns plats för grupp
+        //Ropa hit waiters. KLART
+        //Ropa hit gäster. KLART
+        //Waiters kollar storlek på grupp. KLART
+        //Waitters kollar om det finns plats för grupp.
         //Om det finns, släng in om det inte finns plats stoppa i kö.
     }
 
