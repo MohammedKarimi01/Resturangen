@@ -46,8 +46,6 @@ namespace Resturangen_Kod
     public class Lobby
     {
 
-   
-
         public static void GroupCheck()
         {
             List<Person> Waiters = Waiter.CreatingWaiter();
@@ -55,12 +53,10 @@ namespace Resturangen_Kod
 
             int GroupCheck = 0;
 
-
             for (int i = 0; i < LobbyGroups.Count; i++)
             {
                 GroupCheck++;
             }
-            
         }
         //Ropa hit waiters.
         //Ropa hit gäster.
