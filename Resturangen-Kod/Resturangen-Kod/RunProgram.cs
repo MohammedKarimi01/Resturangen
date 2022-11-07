@@ -83,10 +83,10 @@ namespace Resturangen_Kod
                     nedrerad--;
                 }
                 nedrerad = -2;
-                foreach (object qDone in queue)
-                {
-                    Console.WriteLine(qDone);
-                }
+                //foreach (object qDone in queue) stora listan
+                //{
+                //    Console.WriteLine(qDone);
+                //}
 
                 Console.ReadKey();
             }
