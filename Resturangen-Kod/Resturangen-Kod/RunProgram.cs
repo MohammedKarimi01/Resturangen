@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Collections;
+using System.Globalization;
+
 namespace Resturangen_Kod
 {
     internal class RunProgram
@@ -31,6 +33,7 @@ namespace Resturangen_Kod
             {
                 Console.Clear();
                 Kitchen.kitchen();
+                Console.WriteLine(waiter[2]);
                 for (int Bord = 0; Bord < 5; Bord++)
                 {
                     if (ökning < Restaurant.bord1.Count && start > 0)
@@ -38,7 +41,7 @@ namespace Resturangen_Kod
                         bigtables.BigTables(waiter, Restaurant.gruppledare[Restaurant.bord1[ökning]], Restaurant.ints1[Restaurant.bord1[ökning]]);
                         if (Bord == 0)
                         {
-                            Console.WriteLine(waiter[0]);
+                            Console.Write(waiter[0]);
                         }
                         Restaurant.queueStora.Dequeue();
                         queue.Dequeue();
@@ -56,7 +59,7 @@ namespace Resturangen_Kod
                         Restaurant.queueLiten.Dequeue();
                         if (Bord == 0)
                         {
-                            Console.WriteLine(waiter[1]);
+                            Console.Write(waiter[1]);
                         }
                         queue.Dequeue();
                     }
@@ -71,6 +74,16 @@ namespace Resturangen_Kod
                 }
                 start++;
                 Entre.entre();
+                Console.SetCursorPosition(58, 68);// postion för waiter
+                if (queue.Count == 0) 
+                {
+                    Console.WriteLine(""); // waiter2 försvinner när det är noll i den allmänna queue
+                }
+                else
+                {
+                    Console.WriteLine(waiter[2]);
+                }
+                Console.WriteLine();
                 foreach (object qStora in Restaurant.queueStora)
                 {
                     Console.WriteLine(qStora);
@@ -82,7 +95,7 @@ namespace Resturangen_Kod
                     Console.WriteLine(qLiten);
                     nedrerad--;
                 }
-                nedrerad = -2;
+                nedrerad = 0;
                 //foreach (object qDone in queue) stora listan
                 //{
                 //    Console.WriteLine(qDone);
