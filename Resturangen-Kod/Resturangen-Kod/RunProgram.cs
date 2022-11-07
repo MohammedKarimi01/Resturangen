@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using System.Collections;
-using System.Globalization;
 
 namespace Resturangen_Kod
 {
@@ -32,28 +30,9 @@ namespace Resturangen_Kod
                         bigtables.BigTables(waiter, Restaurant.gruppledare[ökning], 2);
                     }
 
-                    if (ökning < Restaurant.bord2.Count)
-                    {
-                        smallTables.SmallTables(waiter, Restaurant.gruppledare[Restaurant.bord2[ökning]], Restaurant.ints1[Restaurant.bord2[ökning]]);
-                    }
-                    else if (ökning >= Restaurant.bord2.Count)
-                    {
-                        smallTables.SmallTables(waiter, Restaurant.gruppledare[ökning], 3);
-                    }
-                    ökning++;
-                }
-                Entre.entre();
-                Console.ReadKey();
-            }
-
-
-            //int hitta;
-            //hitta = 1;
-
-            //int[] värde = Restaurant.ints1.Find(hitta);
-
-            //Lobby.GroupCheck();
-            //Restaurant.CreatingGroups();
+        public static void StartProgram()
+        {
+              Restaurant.CreatingGroups();
             //Persons.CreatingPersons();
             //Chefs.CreatingChefs();
             //Waiters.CreatingWaiter();
