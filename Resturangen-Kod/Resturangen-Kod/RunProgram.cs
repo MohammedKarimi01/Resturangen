@@ -53,10 +53,6 @@ namespace Resturangen_Kod
                     {
                         bigtables.BigTables(waiter, Restaurant.gruppledare[ökning], 2);
                     }
-                    else
-                    {
-                        bigtables.BigTables(waiter, "Empty", 2);
-                    }
                     if (ökning < Restaurant.bord2.Count && start > 0)
                     {
                         smallTables.SmallTables(waiter, Restaurant.gruppledare[Restaurant.bord2[ökning]], Restaurant.ints1[Restaurant.bord2[ökning]]);
@@ -70,10 +66,6 @@ namespace Resturangen_Kod
                     else if (ökning >= Restaurant.bord2.Count || start == 0)
                     {
                         smallTables.SmallTables(waiter, Restaurant.gruppledare[ökning], 3);
-                    }
-                    else
-                    {
-                        smallTables.SmallTables(waiter, "Empty", 2);
                     }
                     if (start > 0)
                     {
