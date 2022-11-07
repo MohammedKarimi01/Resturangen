@@ -78,19 +78,31 @@ namespace Resturangen_Kod
                             ökning++;
                         }
                     }
-                }
-                start++;
+                }                  
+
                 Entre.entre();
-                Console.SetCursorPosition(58, 68);// postion för waiter
+                Console.SetCursorPosition(Console.WindowWidth / 2 -2, Console.CursorTop-3);// postion för waiter
                 if (queue.Count == 0) 
                 {
                     Console.WriteLine(""); // waiter2 försvinner när det är noll i den allmänna queue
                 }
                 else
                 {
-                    Console.WriteLine(waiter[2]);
+                    Console.WriteLine(waiter[2]);     
+
+                if (start == 0)
+                    {
+                        Console.SetCursorPosition(Console.WindowWidth / 2 - 2, Console.CursorTop - 2);
+                        Console.WriteLine(waiter[1]);
+                        Console.SetCursorPosition(Console.WindowWidth / 2 - 2, Console.CursorTop - 2);
+                        Console.WriteLine(waiter[0]);
+                    }
                 }
-                Console.WriteLine();
+                start++;
+                for (int i = 0; i < 3; i++)
+                {
+                    Console.WriteLine();
+                }
                 foreach (object qStora in Restaurant.queueStora)
                 {
                     Console.WriteLine(qStora);
@@ -102,7 +114,7 @@ namespace Resturangen_Kod
                     Console.WriteLine(qLiten);
                     nedrerad--;
                 }
-                nedrerad = 0;
+                nedrerad = -2;
                 //foreach (object qDone in queue) stora listan
                 //{
                 //    Console.WriteLine(qDone);
