@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Collections;
 using System.Globalization;
+using System.Reflection.Metadata;
 
 namespace Resturangen_Kod
 {
@@ -52,7 +53,10 @@ namespace Resturangen_Kod
                     {
                         bigtables.BigTables(waiter, Restaurant.gruppledare[ökning], 2);
                     }
-
+                    else
+                    {
+                        bigtables.BigTables(waiter, "Empty", 2);
+                    }
                     if (ökning < Restaurant.bord2.Count && start > 0)
                     {
                         smallTables.SmallTables(waiter, Restaurant.gruppledare[Restaurant.bord2[ökning]], Restaurant.ints1[Restaurant.bord2[ökning]]);
@@ -67,9 +71,20 @@ namespace Resturangen_Kod
                     {
                         smallTables.SmallTables(waiter, Restaurant.gruppledare[ökning], 3);
                     }
+                    else
+                    {
+                        smallTables.SmallTables(waiter, "Empty", 2);
+                    }
                     if (start > 0)
                     {
-                        ökning++;
+                        if (ökning >= 29)
+                        {
+                            ökning = 29;
+                        }
+                        else
+                        {
+                            ökning++;
+                        }
                     }
                 }
                 start++;
@@ -100,7 +115,6 @@ namespace Resturangen_Kod
                 //{
                 //    Console.WriteLine(qDone);
                 //}
-
                 Console.ReadKey();
             }
         }
