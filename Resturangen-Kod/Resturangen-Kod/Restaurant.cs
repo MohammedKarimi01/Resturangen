@@ -5,12 +5,17 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Collections;
 namespace Resturangen_Kod
 {
     internal class Restaurant
     {
+        public static Queue queueStora = new Queue();
+        public static Queue queueLiten = new Queue();
         public static string[] allanamn = new string[30];
+        public static string[] allanamnStora = new string[30];
+        public static string[] allanamnLiten = new string[30];
+
         public List<Group> Groups = new List<Group>();
         public static string[] gruppledare = new string[30];
         //public static List<string> gruppledare;
@@ -24,7 +29,8 @@ namespace Resturangen_Kod
         {
             string[] names = Person.GetNames();
             List<Person> Guests = Person.CreatingGuests(names);
-            List<Person> LobbyGroups = new List<Person>();
+            Queue queueLobbyGroups = new Queue();
+            //List<Person> LobbyGroups = new List<Person>();
             Random rnd = new Random();
             string[] GUITest = new string[30];
             int nrOfGroups = 30;
@@ -49,7 +55,7 @@ namespace Resturangen_Kod
                         
                         Console.WriteLine(Guests[counter].Name + " " + grpSize);
                         //Console.WriteLine(LobbyGroups[counter].Name + " " + grpSize);
-                        LobbyGroups.Add(Guests[counter]);
+                        queueLobbyGroups.Enqueue(Guests[counter]);
                         grpSize++;
                         counter++;
                     }
@@ -59,8 +65,6 @@ namespace Resturangen_Kod
                         break;
                     }
                //    Console.WriteLine(Guests[counter].Name + " " + grpSize);
-                    grpSize++;
-                    counter++;
                 }
                 grpSize = 1;
                 Console.WriteLine("------------------");
@@ -78,6 +82,10 @@ namespace Resturangen_Kod
                 //ints.Add(grpSize);
                 //grpSize = 1;
             }
+            //foreach (object q in queueLobbyGroups)
+            //{
+            //    Console.WriteLine(((Guests)q).Name);
+            //}
             return Guests;
 
         }
@@ -89,11 +97,17 @@ namespace Resturangen_Kod
             List<Person> LobbyGroups = new List<Person>();
             Random rnd = new Random();
             int nrOfGroups = 30;
+            int räknaStor = 0;
+            int räknaLiten = 0;
             int peoplePerGroup = 0;
             int counter = 0;
             int grpSize = 1;
             int r = 0;
             int test = 0;
+            int gruppklar = 0;
+            int pergrupp = 0;
+            int NästIGruppStor = 0;
+            int NästIGruppLiten = 0;
             //Tar in Namn, skapar grupper på en random storlek, samt ger varje person en balance
             for (int i = 0; i < nrOfGroups; i++)
             {
@@ -102,6 +116,7 @@ namespace Resturangen_Kod
                 Console.WriteLine("Grupp: " + i);
                 for (int j = 0; j < peoplePerGroup; j++)
                 {
+                    pergrupp = peoplePerGroup;
                     if (counter < names.Length)
                     {
                         if (j == 0)
@@ -109,9 +124,25 @@ namespace Resturangen_Kod
                             gruppledare[r] = names[counter];
                             r++;
                         }
+                        if (peoplePerGroup <= 2)
+                        {
+                            allanamnLiten[räknaLiten] += names[counter] + " ";
+                            if (j == peoplePerGroup-1)
+                            {
+                                räknaLiten++;
+                            }
+                        }
+                        if (peoplePerGroup >= 3)
+                        {
+                            allanamnStora[räknaStor] += names[counter] + " ";
+                            if (j == peoplePerGroup-1)
+                            {
+                                räknaStor++;
+                            }
+                        }
                         allanamn[i] += names[counter] + " ";
                         //  Console.WriteLine(allanamn[j]);
-                        Console.WriteLine(names[counter] + " " + grpSize);
+                        //Console.WriteLine(names[counter] + " " + grpSize);
                         //Console.WriteLine(LobbyGroups[counter].Name + " " + grpSize);
                        // LobbyGroups.Add(names[counter]);
                         grpSize++;
@@ -135,6 +166,7 @@ namespace Resturangen_Kod
                 if (ints1[i] <= 2)
                 {
                     bord2.Add(i);
+
                 }
             }
             for (int i = 0; i < bord2.Count; i++)
@@ -154,7 +186,14 @@ namespace Resturangen_Kod
             {
                 Console.WriteLine(bord1[i]);
             }
-            
+            foreach (object q in allanamnStora)
+            {
+                queueStora.Enqueue(q);
+            }
+            foreach (object q in allanamnLiten)
+            {
+                queueLiten.Enqueue(q);
+            }
             return names;
         }
 
