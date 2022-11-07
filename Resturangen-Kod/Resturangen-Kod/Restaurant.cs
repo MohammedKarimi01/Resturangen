@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -9,6 +10,7 @@ namespace Resturangen_Kod
 {
     internal class Restaurant
     {
+        public static string[] allanamn = new string[30];
         public List<Group> Groups = new List<Group>();
         public static string[] gruppledare = new string[30];
         //public static List<string> gruppledare;
@@ -17,13 +19,14 @@ namespace Resturangen_Kod
         public static List<int> bord2 = new List<int>();
         public static int[] ints2;
         public static int Groupsize { get; set; }
+
         public static List<Person> CreatingGroups()
         {
             string[] names = Person.GetNames();
             List<Person> Guests = Person.CreatingGuests(names);
             List<Person> LobbyGroups = new List<Person>();
             Random rnd = new Random();
-
+            string[] GUITest = new string[30];
             int nrOfGroups = 30;
             int peoplePerGroup = 0;
             int counter = 0;
@@ -34,13 +37,16 @@ namespace Resturangen_Kod
             //Tar in Namn, skapar grupper på en random storlek, samt ger varje person en balance
             for (int i = 0; i < nrOfGroups; i++)
             {
+                int ökning = 0;
                 peoplePerGroup = rnd.Next(1, 5);
                 Console.WriteLine();
                 Console.WriteLine("Grupp: " + i);
                 for (int j = 0; j < peoplePerGroup; j++)
                 {
-                    if (counter < Guests.Count)
+                    if (counter < names.Length)
                     {
+                      //  Console.WriteLine(names[counter] + " " + grpSize);
+                        
                         Console.WriteLine(Guests[counter].Name + " " + grpSize);
                         //Console.WriteLine(LobbyGroups[counter].Name + " " + grpSize);
                         LobbyGroups.Add(Guests[counter]);
@@ -52,10 +58,7 @@ namespace Resturangen_Kod
                         Console.WriteLine("Slut på gäster");
                         break;
                     }
-
-                    Console.WriteLine(Guests[counter].Name + " " + grpSize);
-
-                    Console.WriteLine(Guests);
+               //    Console.WriteLine(Guests[counter].Name + " " + grpSize);
                     grpSize++;
                     counter++;
                 }
@@ -81,10 +84,10 @@ namespace Resturangen_Kod
         public static string[] CreatingGroupss()
         {
             string[] names = Person.GetNames();
+            List<Person> Guestss = Person.CreatingGuests(names);
             //List<Person> Guests = Person.CreatingGuests(names);
             List<Person> LobbyGroups = new List<Person>();
             Random rnd = new Random();
-
             int nrOfGroups = 30;
             int peoplePerGroup = 0;
             int counter = 0;
@@ -106,9 +109,11 @@ namespace Resturangen_Kod
                             gruppledare[r] = names[counter];
                             r++;
                         }
+                        allanamn[i] += names[counter] + " ";
+                        //  Console.WriteLine(allanamn[j]);
                         Console.WriteLine(names[counter] + " " + grpSize);
                         //Console.WriteLine(LobbyGroups[counter].Name + " " + grpSize);
-                        //  LobbyGroups.Add(names[counter]);
+                       // LobbyGroups.Add(names[counter]);
                         grpSize++;
                         counter++;
                     }
@@ -149,6 +154,7 @@ namespace Resturangen_Kod
             {
                 Console.WriteLine(bord1[i]);
             }
+            
             return names;
         }
 

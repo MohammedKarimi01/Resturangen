@@ -17,7 +17,7 @@ namespace Resturangen_Kod
         }
         public virtual void Draw(string[] waitertest, string[] booked)
         {
-            string[] waiter = { "Waiter1", "Waiter2", "Waiter3" }; // ba ett test
+            //string[] waiter = { "Waiter1", "Waiter2", "Waiter3" }; // ba ett test
             string entre = "Entre";
             int sidolängd2 = 0;
             string[,] drawArray = new string[50, 5];
@@ -42,7 +42,7 @@ namespace Resturangen_Kod
             for (int i = 0; i < 3; i++)
             {
                 Console.SetCursorPosition((Console.WindowWidth - kitchen.Length + 3) / 2, Console.CursorTop);
-                Console.WriteLine(waiter[i]);
+               // Console.WriteLine(waiter[i]);
             }
             Console.WriteLine();
             for (int Tables = 0; Tables < 5; Tables++) // k = borden
@@ -51,7 +51,7 @@ namespace Resturangen_Kod
                 sidolängd2 = 0;
 
                 Console.WriteLine();
-                Console.WriteLine(waiter[0]); // if k = 0 då äre bord 1 osv detta är för vänster sida
+                //Console.WriteLine(waiter[0]); // if k = 0 då äre bord 1 osv detta är för vänster sida
 
                 for (int i = 0; i < drawArray.GetLength(0); i++) // överesidan på bordet
                 {
@@ -93,7 +93,7 @@ namespace Resturangen_Kod
                 //    Console.WriteLine(waiter[1]); // detta är för höger sida
 
                 //}
-                Console.WriteLine(waiter[1]); // detta är för höger sida
+         //       Console.WriteLine(waiter[1]); // detta är för höger sida
                 Console.SetCursorPosition((Console.WindowWidth + 39) / 2, Console.CursorTop);
                 for (int f = 0; f < drawArray2.GetLength(0); f++) // andra bordet
                 {
@@ -131,7 +131,7 @@ namespace Resturangen_Kod
             for (int i = 0; i < 3; i++)
             {
                 Console.SetCursorPosition((Console.WindowWidth - entre.Length + 2) / 2, Console.CursorTop);
-                Console.WriteLine(waiter[i]);
+         //       Console.WriteLine(waiter[i]);
             }
             Console.WriteLine();
             //           Console.SetCursorPosition(0, 81);
@@ -174,7 +174,7 @@ namespace Resturangen_Kod
             string[,] drawArray = new string[50, 5];
             string FrameSide = "|";
             Console.WriteLine();
-            Console.WriteLine(waiter[0]);
+            //Console.WriteLine(waiter[0]);
             for (int i = 0; i < drawArray.GetLength(0); i++) // överesidan på bordet
             {
                 sidolängd++; // behövs för att veta slutet av bordet
@@ -254,7 +254,7 @@ namespace Resturangen_Kod
             string[,] drawArray2 = new string[30, 2];
             string FrameSide = "|";
             Console.SetCursorPosition((Console.WindowWidth + 39) / 2, Console.CursorTop);
-            Console.WriteLine(waiter[1]); // detta är för höger sida
+     //       Console.WriteLine(waiter[1]); // detta är för höger sida
             Console.SetCursorPosition((Console.WindowWidth + 39) / 2, Console.CursorTop);
             for (int f = 0; f < drawArray2.GetLength(0); f++) // andra bordet
             {
