@@ -30,12 +30,19 @@ namespace Resturangen_Kod
                         bigtables.BigTables(waiter, Restaurant.gruppledare[ökning], 2);
                     }
 
-        public static void StartProgram()
-        {
-              Restaurant.CreatingGroups();
-            //Persons.CreatingPersons();
-            //Chefs.CreatingChefs();
-            //Waiters.CreatingWaiter();
+                    if (ökning < Restaurant.bord2.Count)
+                    {
+                        smallTables.SmallTables(waiter, Restaurant.gruppledare[Restaurant.bord2[ökning]], Restaurant.ints1[Restaurant.bord2[ökning]]);
+                    }
+                    else if (ökning >= Restaurant.bord2.Count)
+                    {
+                        smallTables.SmallTables(waiter, Restaurant.gruppledare[ökning], 3);
+                    }
+                    ökning++;
+                }
+                Entre.entre();
+                Console.ReadKey();
+            }
         }
     }
 }

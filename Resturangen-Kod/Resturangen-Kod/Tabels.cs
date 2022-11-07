@@ -167,8 +167,8 @@ namespace Resturangen_Kod
         {
             string[] guests = { "+1", "+2", "+3", "Empty" };
             Random rnd = new Random();
-            int nameRandom = rnd.Next(0, 10);
-            int c = rnd.Next(0, 3);
+           // int nameRandom = rnd.Next(0, 10);
+           // int c = rnd.Next(0, 3);
             int sidolängd = 0;
             string FrameTop = "-";
             string[,] drawArray = new string[50, 5];
@@ -248,8 +248,7 @@ namespace Resturangen_Kod
         {
             string[] guests = { "+1", "+2", "+3", "Empty" };
             Random rnd = new Random();
-            int nameRandom = rnd.Next(0, 10);
-            int c = rnd.Next(0, 3);
+           // int nameRandom = rnd.Next(0, 10);
             int sidolängd2 = 0;
             string FrameTop = "-";
             string[,] drawArray2 = new string[30, 2];
@@ -273,9 +272,7 @@ namespace Resturangen_Kod
                 if (o == 0)
                 {
                     Console.SetCursorPosition((Console.WindowWidth + 39) / 2, Console.CursorTop);
-
-                    Console.Write("| " + booked[nameRandom]);
-                    if (c < 1)
+                    if (grupp == 2)
                     {
                         Console.Write("| " + booked);
                         Console.SetCursorPosition((Console.WindowWidth + 37) - newsidolängd2 - guests[0].Length, Console.CursorTop);
