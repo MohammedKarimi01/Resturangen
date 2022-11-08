@@ -14,6 +14,8 @@ namespace Resturangen_Kod
     internal class RunProgram
     {
         public static int increase = 0;
+        private static string orderdFood;
+
         public static void StartProgram()
         {
             int nedrerad = 0;
@@ -43,7 +45,7 @@ namespace Resturangen_Kod
                         if (Bord == 0)
                         {
                             Console.Write(waiter[0]);
-                            FoodProcess.GuestOrder(FoodProcess.orderdFood);
+                            FoodProcess.GuestOrder(0);
                         }
                         Restaurant.queueStora.Dequeue();
                         queue.Dequeue();

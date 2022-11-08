@@ -10,9 +10,11 @@ namespace Resturangen_Kod
     internal class Person
     {
         public string Name { get; set; }
+        public string Order { get; set; }
         public Person (string name)
         {
             Name = name;
+    
         }
         public static string[] GetNames()
         {

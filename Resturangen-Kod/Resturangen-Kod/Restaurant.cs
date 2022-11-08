@@ -10,8 +10,9 @@ using System.Collections.Specialized;
 
 namespace Resturangen_Kod
 {
-    internal class Restaurant
+    class Restaurant
     {
+        public static List<Person> LobbyGroups = new List<Person>();
         public static Queue queueStora = new Queue();
         public static Queue queueLiten = new Queue();
         public static string[] allanamn = new string[30];
@@ -96,7 +97,7 @@ namespace Resturangen_Kod
             string[] names = Person.GetNames();
             List<Person> Guestss = Person.CreatingGuests(names);
             //List<Person> Guests = Person.CreatingGuests(names);
-            List<Person> LobbyGroups = new List<Person>();
+           
             Random rnd = new Random();
             int nrOfGroups = 30;
             int räknaStor = 0;
@@ -203,34 +204,23 @@ namespace Resturangen_Kod
         }
     }
  
-    public class FoodProcess
+    class FoodProcess : Restaurant
     {
-        public static string orderdFood;
-        public static string GuestOrder(string orderdFood)
+
+
+        public static string GuestOrder(int grpNumber)
         {
-            //Funkar nästan, den behöver bara komma åt alla Människor istället för alla namn, kommer att funka rätt då.
-            foreach (var item in Restaurant.gruppledare)
+            string orderdFood = " ";           
+            var item = ints1[grpNumber];
+
+            for (int i = 0; i < item; i++)
             {
+                string[] Food = new string[] { "Fisk", "Kött", "Vegitariskt" };
                 Random rnd = new Random();
-                String[] Food = { "Fisk", "Kött", "Vegitariskt" };
                 //Console.SetCursorPosition(Console.WindowWidth / 2 - 2, Console.CursorTop - 2);
                 orderdFood = Food[rnd.Next(Food.Length)];
+                Console.WriteLine(orderdFood);
             }
-            Console.WriteLine(orderdFood);
-
-            ////string[] _OrderdFood = new string[4];
-            ////string OrderdFood;
-            //for (int i = 0; i < Restaurant.bord1.Count; i++)
-            //{
-            //    for (int k = 0; k < Restaurant.bord1.Count; k++)
-            //    {
-            //        Random rnd = new Random();
-            //        String[] Food = { "Fisk", "Kött", "Vegitariskt" };
-            //        // Console.SetCursorPosition(Console.WindowWidth / 2 - 2, Console.CursorTop - 2);
-            //        orderdFood = Food[rnd.Next(Food.Length)];
-            //    }
-            //    Console.WriteLine(orderdFood);
-            //}
             return orderdFood;
         }
 
