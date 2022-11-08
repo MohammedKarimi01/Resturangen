@@ -6,6 +6,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Collections.Specialized;
+
 namespace Resturangen_Kod
 {
     internal class Restaurant
@@ -64,7 +66,7 @@ namespace Resturangen_Kod
                         Console.WriteLine("Slut på gäster");
                         break;
                     }
-               //    Console.WriteLine(Guests[counter].Name + " " + grpSize);
+                //    Console.WriteLine(Guests[counter].Name + " " + grpSize);
                 }
                 grpSize = 1;
                 Console.WriteLine("------------------");
@@ -138,7 +140,9 @@ namespace Resturangen_Kod
                             if (j == peoplePerGroup-1)
                             {
                                 räknaStor++;
+                              
                             }
+                          
                         }
                         allanamn[i] += names[counter] + " ";
                         //  Console.WriteLine(allanamn[j]);
@@ -185,6 +189,7 @@ namespace Resturangen_Kod
             for (int i = 0; i < bord1.Count; i++)
             {
                 Console.WriteLine(bord1[i]);
+                
             }
             foreach (object q in allanamnStora)
             {
@@ -196,9 +201,59 @@ namespace Resturangen_Kod
             }
             return names;
         }
-
     }
+ 
+    public class FoodProcess
+    {
+        public static string orderdFood;
+        public static string GuestOrder(string orderdFood)
+        {
+            //Funkar nästan, den behöver bara komma åt alla Människor istället för alla namn, kommer att funka rätt då.
+            foreach (var item in Restaurant.gruppledare)
+            {
+                Random rnd = new Random();
+                String[] Food = { "Fisk", "Kött", "Vegitariskt" };
+                //Console.SetCursorPosition(Console.WindowWidth / 2 - 2, Console.CursorTop - 2);
+                orderdFood = Food[rnd.Next(Food.Length)];
+            }
+            Console.WriteLine(orderdFood);
 
+            ////string[] _OrderdFood = new string[4];
+            ////string OrderdFood;
+            //for (int i = 0; i < Restaurant.bord1.Count; i++)
+            //{
+            //    for (int k = 0; k < Restaurant.bord1.Count; k++)
+            //    {
+            //        Random rnd = new Random();
+            //        String[] Food = { "Fisk", "Kött", "Vegitariskt" };
+            //        // Console.SetCursorPosition(Console.WindowWidth / 2 - 2, Console.CursorTop - 2);
+            //        orderdFood = Food[rnd.Next(Food.Length)];
+            //    }
+            //    Console.WriteLine(orderdFood);
+            //}
+            return orderdFood;
+        }
+
+        public static string[] TakeOrderToKitchen(string orderdFood)
+        {
+            //Ta ordern från gäst > Lämmna ordern i köket, Vänta på att maten blir klar / gå och ta nästa bord.
+            
+
+            return null;
+        }
+        public static void CookFood()
+        {
+            //Ta in maten från waiters > Laga den på 3 sek ish, lägg tillbaka den på disken och ropa på ledig servitör
+
+        }
+        public static string[] TakeFoodFromKitchen()
+        {
+            //Gå till köket > Hämta färdig mat > lämmna mat på rätt bord.
+
+
+            return null;
+        }
+    }
     public class Lobby
     {
 

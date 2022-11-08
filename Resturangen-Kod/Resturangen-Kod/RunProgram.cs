@@ -43,6 +43,7 @@ namespace Resturangen_Kod
                         if (Bord == 0)
                         {
                             Console.Write(waiter[0]);
+                            FoodProcess.GuestOrder(FoodProcess.orderdFood);
                         }
                         Restaurant.queueStora.Dequeue();
                         queue.Dequeue();
@@ -60,6 +61,7 @@ namespace Resturangen_Kod
                         if (Bord == 0)
                         {
                             Console.Write(waiter[1]);
+
                         }
                         queue.Dequeue();
                     }
@@ -90,7 +92,7 @@ namespace Resturangen_Kod
                 {
                     Console.WriteLine(waiter[2]);     
 
-                if (start == 0)
+                    if (start == 0)
                     {
                         Console.SetCursorPosition(Console.WindowWidth / 2 - 2, Console.CursorTop - 2);
                         Console.WriteLine(waiter[1]);

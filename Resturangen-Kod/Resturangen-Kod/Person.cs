@@ -90,7 +90,6 @@ namespace Resturangen_Kod
             }
             return Waiters;
         }
-
         // Servitörens Service level är en rating från 1-10
         public int ServiceLevel { get; set; }
 
