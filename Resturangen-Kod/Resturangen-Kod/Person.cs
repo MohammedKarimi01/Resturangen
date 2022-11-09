@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace Resturangen_Kod
 {
-    internal class Person
+    public class Person
     {
         public string Name { get; set; }
         public string Order { get; set; }
@@ -45,32 +45,35 @@ namespace Resturangen_Kod
     }
     
         
-    internal class Chefs : Person
+    public class Chefs
     {
         // Kockens kompetens är en rating från 1-10
         public int Competence { get; set; }
-        public Chefs(string name, int competence) : base(name)
+        public Chefs(int competence)
         {
             Competence = competence;
         }
-        public static void CreatingChefs()
+        public static List<Person> CreatingChefs()
         {
+           
             List<Person> Chefs = new List<Person>();
-            string[] ChefNames = { "Mohammed", "Thom", "Bilal", "Daniel", "Erik", };
+
+            string[] ChefNames = {"Mohammed", "Thom", "Bilal", "Daniel", "Erik"};
+
+
+            int _Competence = 1;
             Random rnd = new Random();
 
             foreach (string name in ChefNames)
             {
-                int _Competence = 1;
-                for (int i = 0; i < 1; i++)
-                {
-                    _Competence = rnd.Next(5, 11);
-                }
-                Chefs.Add(new Person(name));
+                _Competence = rnd.Next(5, 11);
+                Chefs.Add(new Person(name + " " + _Competence));
+                Console.WriteLine(name + " " + _Competence);
             }
+            return Chefs;
         }
     }
-    internal class Waiter : Person
+    public class Waiter : Person
     {
         public Waiter(string name, int servicelevel) : base(name)
         {
@@ -96,7 +99,7 @@ namespace Resturangen_Kod
         public int ServiceLevel { get; set; }
 
     }
-    internal class Guests : Person
+    public class Guests : Person
     {
 
         public Guests(string name, int balance, bool satisfaction) : base(name)

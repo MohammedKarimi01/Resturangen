@@ -206,49 +206,25 @@ namespace Resturangen_Kod
  
     class FoodProcess : Restaurant
     {
-
-
-        public static string GuestOrder(int grpNumber)
+        public static List<Foods> GuestOrder(int grpNumber)
         {
-            string orderdFood = " ";           
+            Foods.CreatingMenu();
+            List<Foods> orderdFood = new List<Foods>();      
             var item = ints1[grpNumber];
-
+            Random rnd = new Random();
             for (int i = 0; i < item; i++)
             {
-                string[] Food = new string[] { "Fisk", "Kött", "Vegitariskt" };
-                Random rnd = new Random();
-                //Console.SetCursorPosition(Console.WindowWidth / 2 - 2, Console.CursorTop - 2);
-                orderdFood = Food[rnd.Next(Food.Length)];
-                Console.WriteLine(orderdFood);
+                //Foods.Menu[rnd.Next(Foods.Menu.Count)] = orderdFood;
+                orderdFood.Add(Foods.Menu[rnd.Next(Foods.Menu.Count)]);
             }
             return orderdFood;
         }
 
-        public static string[] TakeOrderToKitchen(string orderdFood)
-        {
-            //Ta ordern från gäst > Lämmna ordern i köket, Vänta på att maten blir klar / gå och ta nästa bord.
-            
-
-            return null;
-        }
-        public static void CookFood()
-        {
-            //Ta in maten från waiters > Laga den på 3 sek ish, lägg tillbaka den på disken och ropa på ledig servitör
-
-        }
-        public static string[] TakeFoodFromKitchen()
-        {
-            //Gå till köket > Hämta färdig mat > lämmna mat på rätt bord.
 
 
-            return null;
-        }
     }
     public class Lobby
     {
-
-
-
         //public static void GroupCheck()
         //{
         //    List<Person> Waiters = Waiter.CreatingWaiter();
