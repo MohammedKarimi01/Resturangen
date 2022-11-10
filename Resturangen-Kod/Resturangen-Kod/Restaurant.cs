@@ -10,7 +10,7 @@ using System.Collections.Specialized;
 
 namespace Resturangen_Kod
 {
-    class Restaurant
+    public class Restaurant
     {
         public static List<Person> LobbyGroups = new List<Person>();
         public static Queue queueStora = new Queue();
@@ -19,7 +19,7 @@ namespace Resturangen_Kod
         public static string[] allanamnStora = new string[30];
         public static string[] allanamnLiten = new string[30];
 
-        public List<Group> Groups = new List<Group>();
+        //public List<Group> Groups = new List<Group>();
         public static string[] gruppledare = new string[30];
         //public static List<string> gruppledare;
         public static List<int> ints1 = new List<int>();
@@ -204,18 +204,18 @@ namespace Resturangen_Kod
         }
     }
  
-    class FoodProcess : Restaurant
+    public class FoodProcess : Restaurant
     {
-        public static List<Foods> GuestOrder(int grpNumber)
+        public static List<Food> GuestOrder(int grpNumber)
         {
-            Foods.CreatingMenu();
-            List<Foods> orderdFood = new List<Foods>();      
+            Food.CreatingMenu();
+            List<Food> orderdFood = new List<Food>();      
             var item = ints1[grpNumber];
             Random rnd = new Random();
             for (int i = 0; i < item; i++)
             {
                 //Foods.Menu[rnd.Next(Foods.Menu.Count)] = orderdFood;
-                orderdFood.Add(Foods.Menu[rnd.Next(Foods.Menu.Count)]);
+                orderdFood.Add(Food.Menu[rnd.Next(Food.Menu.Count)]);
             }
             return orderdFood;
         }
@@ -223,26 +223,6 @@ namespace Resturangen_Kod
 
 
     }
-    public class Lobby
-    {
-        //public static void GroupCheck()
-        //{
-        //    List<Person> Waiters = Waiter.CreatingWaiter();
-        //    List<Person> LobbyGroups = Restaurant.CreatingGroups();
-
-        //    int GroupCheck = 0;
-
-        //    for (int i = 0; i < LobbyGroups.Count; i++)
-        //    {
-        //        GroupCheck++;
-        //    }
-
-        //}
-        //Ropa hit waiters. KLART
-        //Ropa hit gäster. KLART
-        //Waiters kollar storlek på grupp. KLART
-        //Waitters kollar om det finns plats för grupp.
-        //Om det finns, släng in om det inte finns plats stoppa i kö.
-    }
+    
 
 }

@@ -24,22 +24,27 @@ namespace Resturangen_Kod
 
             return null;
         }
-        public static string CookFood(List<Foods> orderdFood)
+        public static List<Food> CookFood(List<Food> orderdFood)
         {   //Ta in maten, Ge den till en random chef, tillaga den på 3Tid, Cooked på true, returnera maten.
             //Ta in maten från waiters > Laga den på 3 sek ish, lägg tillbaka den på disken och ropa på ledig servitör
-
+            Food food = new Food(" ", 0, false, 0, 0);
             Chefs.CreatingChefs();
             Queue FoodQueue = new Queue();
             FoodQueue.Enqueue(orderdFood);
 
-            while (orderdFood = false)
+        
+            if(food.Cooked == false)
             {
-                orderdFood = true;
+                Console.WriteLine("Maten tillagas.");
                 Thread.Sleep(3000);
-                Console.WriteLine("{orderdFood} har tillagats och är redo för att serveras", FoodQueue.Dequeue()); 
+                food.Cooked = true;
+            }
+            else if(food.Cooked == true)
+            {
+                Console.WriteLine("{orderdFood} har tillagats och är redo för att serveras", FoodQueue.Dequeue());
             }
 
-            return null;
+            return orderdFood;
         }
         public static string[] TakeFoodFromKitchen()
         {

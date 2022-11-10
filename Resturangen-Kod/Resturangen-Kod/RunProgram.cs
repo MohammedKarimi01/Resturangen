@@ -14,7 +14,6 @@ namespace Resturangen_Kod
     internal class RunProgram
     {
         public static int increase = 0;
-        private static string orderdFood;
 
         public static void StartProgram()
         {
@@ -41,7 +40,7 @@ namespace Resturangen_Kod
                 {
                     if (ökning < Restaurant.bord1.Count && start > 0)
                     {
-                        bigtables.BigTables(waiter, Restaurant.gruppledare[Restaurant.bord1[ökning]], Restaurant.ints1[Restaurant.bord1[ökning]]);
+                        BigTable.BigTables(waiter, Restaurant.gruppledare[Restaurant.bord1[ökning]], Restaurant.ints1[Restaurant.bord1[ökning]]);
                         if (Bord == 0)
                         {
                             Console.Write(waiter[0]);
@@ -54,11 +53,11 @@ namespace Resturangen_Kod
                     }
                     else if (ökning >= Restaurant.bord1.Count || start == 0)
                     {
-                        bigtables.BigTables(waiter, Restaurant.gruppledare[ökning], 2);
+                        BigTable.BigTables(waiter, Restaurant.gruppledare[ökning], 2);
                     }
                     if (ökning < Restaurant.bord2.Count && start > 0)
                     {
-                        smallTables.SmallTables(waiter, Restaurant.gruppledare[Restaurant.bord2[ökning]], Restaurant.ints1[Restaurant.bord2[ökning]]);
+                        SmallTables.SmallTable(waiter, Restaurant.gruppledare[Restaurant.bord2[ökning]], Restaurant.ints1[Restaurant.bord2[ökning]]);
                         Restaurant.queueLiten.Dequeue();
                         if (Bord == 0)
                         {
@@ -69,7 +68,7 @@ namespace Resturangen_Kod
                     }
                     else if (ökning >= Restaurant.bord2.Count || start == 0)
                     {
-                        smallTables.SmallTables(waiter, Restaurant.gruppledare[ökning], 3);
+                        SmallTables.SmallTable(waiter, Restaurant.gruppledare[ökning], 3);
                     }
                     if (start > 0)
                     {
@@ -84,7 +83,7 @@ namespace Resturangen_Kod
                     }
                 }                  
 
-                Entre.entre();
+                Entre.EntreMethod();
                 Console.SetCursorPosition(Console.WindowWidth / 2 -2, Console.CursorTop-3);// postion för waiter
                 if (queue.Count == 0) 
                 {
@@ -119,10 +118,6 @@ namespace Resturangen_Kod
                     nedrerad--;
                 }
                 nedrerad = -2;
-                //foreach (object qDone in queue) stora listan
-                //{
-                //    Console.WriteLine(qDone);
-                //}
                 Console.ReadKey();
             }
         }

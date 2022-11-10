@@ -6,14 +6,32 @@ using System.Threading.Tasks;
 
 namespace Resturangen_Kod
 {
-    internal class Food
+    public class Food
     {
-        string[] FoodTypes = { "Pizza", "Hamburgare", "Kebabrulle", "Kebabtallrik" };
-        int[] FoodPrices = { 100, 139, 95 };
-        public string FoodType { get; set; }
+        public string FoodName { get; set; }
         public int FoodPrice { get; set; }
+        public bool Cooked { get; set; }
+        public int TabelDestination { get; set; }
+        public int FoodQuality { get; set; }
+        public static List<Food> Menu = new List<Food>();
 
-        //Bara ett exempel, behövs inte vara detta.
-        //Fixa så att maten är objekt, så det är enklare att leka med med, då kommer rätten samt priset dirrekt.
+        public Food(string foodname, int foodprice, bool cooked, int tabeldestination, int foodquality)
+        {
+            FoodName = foodname;
+            FoodPrice = foodprice;
+            Cooked = cooked;
+            TabelDestination = tabeldestination;
+            FoodQuality = foodquality;
+        }
+        public static List<Food> CreatingMenu()
+        {
+            List<Food> Menu = new List<Food>();
+         
+            Menu.Add(new Food("Fisk", 95, false, 0, 0));
+            Menu.Add(new Food("Kött", 149, false, 0, 0));
+            Menu.Add(new Food("Vegitariskt", 129, false, 0, 0));
+
+            return Menu;
+        }
     }
 }

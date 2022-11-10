@@ -6,10 +6,8 @@ namespace Resturangen_Kod
     {
         static void Main(string[] args)
         {
-
             //Tabels.Draw();
-            //RunProgram.StartProgram();
-
+            RunProgram.StartProgram();
         }
     }
 }

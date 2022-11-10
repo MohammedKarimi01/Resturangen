@@ -11,10 +11,9 @@ namespace Resturangen_Kod
     {
         public string Name { get; set; }
         public string Order { get; set; }
-        public Person (string name)
+        public Person(string name)
         {
             Name = name;
-    
         }
         public static string[] GetNames()
         {
@@ -73,15 +72,18 @@ namespace Resturangen_Kod
             return Chefs;
         }
     }
-    public class Waiter : Person
+    public class Waiter 
     {
-        public Waiter(string name, int servicelevel) : base(name)
+        public Waiter(string name, int servicelevel, bool busy) 
         {
+            Name = name;
             ServiceLevel = servicelevel;
+            Busy = busy;
+            
         }
-        public static List<Person> CreatingWaiter()
+        public static List<Waiter> CreatingWaiters()
         {
-            List<Person> Waiters = new List<Person>();
+            List<Waiter> Waiters = new List<Waiter>();
             string[] WaiterNames = { "Elias", "Emma", "Kenneth", };
             Random rnd = new Random();
             foreach (string name in WaiterNames)
@@ -91,14 +93,16 @@ namespace Resturangen_Kod
                 {
                     _ServiceLvL = rnd.Next(5,11);
                 }
-                Waiters.Add(new Person(name + " " + _ServiceLvL));
+                Waiters.Add(new Waiter(name, _ServiceLvL, false));
             }
             return Waiters;
         }
         // Servitörens Service level är en rating från 1-10
         public int ServiceLevel { get; set; }
-
+        public bool Busy { get; set; }
+        public string Name { get; set; }
     }
+
     public class Guests : Person
     {
 
@@ -109,20 +113,10 @@ namespace Resturangen_Kod
             Satisfaction = satisfaction;
 
         }
-        //public static int GetMoney()
-        //{
-        //    Random rnd = new Random();
-        //    int amountofmoney = 0;
-        //    amountofmoney = rnd.Next(100,1000);
-        //    return amountofmoney;
-        //}
-      
 
         public int GroupSize { get; set; }
         public int Balance { get; set; }
         public bool Satisfaction { get; set; }
 
-        //Ändrar på propen senare.
-        //public bool Allergies { get; set; }
     }
 }
