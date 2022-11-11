@@ -23,7 +23,6 @@ namespace Resturangen_Kod
             Queue queueStora = new Queue();
             Queue queueLiten = new Queue();
             int start = 0;
-            int ökning = 0;
             string[] waiter = { "Elias", "Emma", "Kenneth", };
             Restaurant.CreatingGroupss();
             int[] stortBord = new int[] {0, 0, 0, 0, 0};
@@ -93,13 +92,11 @@ namespace Resturangen_Kod
                         taNyBeställning2 = tester;
                     }
                 }
-
-                Console.WriteLine(start);
                 for (int Bord = 0; Bord < 5; Bord++)
                 {
                     if (ökningBord[Bord] > Restaurant.bord1.Count && ökningBord2[Bord] > Restaurant.bord2.Count)
                     {
-                        Händelser[3] = Stängd;
+                        Händelser[4] = Stängd;
                     }
                     if (waiterWasThere[Bord] == false && Bord == 0 && NästaServering[Bord] == 0 && ökningBord[Bord] < Restaurant.bord1.Count) // första bordet
                     {
@@ -110,10 +107,9 @@ namespace Resturangen_Kod
                         waiterWasThere[Bord] = true;
                         taNyBeställning = -2;
                     }
-                    else if (waiterWasThere[Bord] == false && start > 0 && VartWaiterStår == -1 && taNyBeställning == tester && NästaServering[Bord] == 0 && ökningBord[Bord] < Restaurant.bord1.Count) // alla andra bord
+                    else if (waiterWasThere[Bord] == false && VartWaiterStår == -1 && taNyBeställning == tester && NästaServering[Bord] == 0 && ökningBord[Bord] < Restaurant.bord1.Count) // alla andra bord
                     {
                         taNyBeställning = -2;
-                        BigTable.BigTables(waiter, Restaurant.gruppledare[Restaurant.bord1[ökning]], Restaurant.ints1[Restaurant.bord1[ökning]]);
                         if (Bord == 0)
                         {
                             Console.Write(waiter[0]);
@@ -150,32 +146,26 @@ namespace Resturangen_Kod
                         {
                             Console.SetCursorPosition(Console.WindowWidth / Console.WindowWidth - 1, Console.CursorTop);
                             Console.WriteLine(waiter[2]);
-                            bigtables.BigTables(waiter, Restaurant.gruppledare[ökning], 2);
+                            bigtables.BigTables(waiter, Restaurant.gruppledare[0], 2);
                             waiter2Used = true;
                         }
                         else
                         {
                             waiter2Used = true;
                             Console.WriteLine(waiter[2]);
-                            bigtables.BigTables(waiter, Restaurant.gruppledare[ökning], 2);
+                            bigtables.BigTables(waiter, Restaurant.gruppledare[0], 2);
                         }
                         NästaServering[Bord] = 0;
                     }
                     else if (ökningBord[Bord] >= Restaurant.bord1.Count)
                     {
-                        bigtables.BigTables(waiter, Restaurant.gruppledare[ökning], 2); // empty
+                        bigtables.BigTables(waiter, Restaurant.gruppledare[0], 2); // empty
                     }
                     else
                     {
-                        bigtables.BigTables(waiter, Restaurant.gruppledare[ökning], 2); // empty
+                        bigtables.BigTables(waiter, Restaurant.gruppledare[0], 2); // empty
                     }
                     if (waiterWasThereBord2[Bord] == false && Bord == 0 && NästaServering2[Bord] == 0 && ökningBord2[Bord] < Restaurant.bord2.Count)
-                    }
-                    else if (ökning >= Restaurant.bord1.Count || start == 0)
-                    {
-                        BigTable.BigTables(waiter, Restaurant.gruppledare[ökning], 2);
-                    }
-                    if (ökning < Restaurant.bord2.Count && start > 0)
                     {
                         Restaurant.queueLiten.Dequeue();
                         Console.SetCursorPosition(Console.WindowWidth - 40, Console.CursorTop);
@@ -210,37 +200,32 @@ namespace Resturangen_Kod
                     if (ökningBord2[Bord] < Restaurant.bord2.Count && waiterWasThereBord2[Bord] == true) // väljer ut bord 0
                     {
                         smallTables.SmallTables(waiter, Restaurant.gruppledare[Restaurant.bord2[ökningBord2[Bord]]], Restaurant.ints1[Restaurant.bord2[ökningBord2[Bord]]]);
-                        if (Bord == 0)
-                        {
-                            Console.Write(waiter[1]);
-
-                        }
-                        queue.Dequeue();
                     }
                     else if (NästaServering2[Bord] == 1)
                     {
                         if (Bord == 1)
                         {
                             Console.SetCursorPosition(Console.WindowWidth - 10, Console.CursorTop);
-                            smallTables.SmallTables(waiter, Restaurant.gruppledare[ökning], 4);
+                            smallTables.SmallTables(waiter, Restaurant.gruppledare[0], 4);
                             waiter1Used = true;
                         }
                         else
                         {
                             Console.SetCursorPosition(Console.WindowWidth - 10, Console.CursorTop);
                             waiter1Used = true;
-                            smallTables.SmallTables(waiter, Restaurant.gruppledare[ökning], 4);
+                            smallTables.SmallTables(waiter, Restaurant.gruppledare[0], 4);
                         }
                         NästaServering2[Bord] = 0;
                     }
                     else if (ökningBord2[Bord] >= Restaurant.bord2.Count)
                     {
-                        smallTables.SmallTables(waiter, Restaurant.gruppledare[ökning], 4); // empty
+                        smallTables.SmallTables(waiter, Restaurant.gruppledare[0], 4); // empty
                     }
                     else
                     {
-                        smallTables.SmallTables(waiter, Restaurant.gruppledare[ökning], 4);
+                        smallTables.SmallTables(waiter, Restaurant.gruppledare[0], 4);
                     }
+
                     if (taNyBeställning2 == -1)
                     {
                         taNyBeställning2 = tester;
@@ -248,27 +233,10 @@ namespace Resturangen_Kod
                         if (tester > 4)
                         {
                             tester = 0;
-                    else if (ökning >= Restaurant.bord2.Count || start == 0)
-                    {
-                        SmallTables.SmallTable(waiter, Restaurant.gruppledare[ökning], 3);
-                    }
-                    if (start > 0)
-                    {
-                        if (ökning >= 29)
-                        {
-                            ökning = 29;
-                        }
-                        else
-                        {
-                            ökning++;
                         }
                     }
                 }
-
                 Entre.entre();
-                Console.SetCursorPosition(Console.WindowWidth / 2 - 2, Console.CursorTop - 3);// postion för waiter
-                if (queue.Count == 0)
-                Entre.EntreMethod();
                 Console.SetCursorPosition(Console.WindowWidth / 2 -2, Console.CursorTop-3);// postion för waiter
                 if (queue.Count == 0) 
                 {
@@ -277,22 +245,15 @@ namespace Resturangen_Kod
                 else
                 {
                     if (waiter2Used == true)
-                    Console.WriteLine(waiter[2]);     
-
-                    if (start == 0)
                     {
-                        Console.WriteLine();
+                        Console.Write("");
                     }
                     else if (waiter2Used == false)
                     {
                         Console.WriteLine(waiter[2]);
                     }
                 }
-                
-                //for (int i = 0; i < 3; i++)
-                //{
-                //    Console.WriteLine();
-                //}
+                Console.WriteLine();
                 foreach (object qStora in Restaurant.queueStora)
                 {
                     Console.WriteLine(qStora);
@@ -316,10 +277,7 @@ namespace Resturangen_Kod
                 {
                     Händelser[0] = "Kenneth tar emot gäster, Elias och Emma har tagit emot sina första gäster";
                 }
-                if (start == 1)
-                {
-                    Händelser[1] = "Kenneth välkommnar gästerna längst fram i kön. Elias och Emma lämnar beställningen till köket";
-                }
+                // händelser inte klara
                 for (int i = 0; i < 5; i++)
                 {
                     Console.WriteLine(Händelser[i]);
@@ -335,16 +293,7 @@ namespace Resturangen_Kod
                 start++;
                 nedrerad = 0;
                 iKöket = false;
-                Console.WriteLine(start);
-                //foreach (object qDone in queue) stora listan
-                //{
-                //    Console.WriteLine(qDone);
-                //}
-                    Console.SetCursorPosition(75, 70 - nedrerad);
-                    Console.WriteLine(qLiten);
-                    nedrerad--;
-                }
-                nedrerad = -2;
+                Console.WriteLine(start); // visar hur många gånger du klickar dig igenom
                 Console.ReadKey();
             }
             }

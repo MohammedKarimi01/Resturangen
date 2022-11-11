@@ -7,34 +7,32 @@ using System.Threading.Tasks;
 using System.Collections;
 namespace Resturangen_Kod
 {
-    internal class Tabels
+    public class Tabels
     {
         public int Tables { get; set; }
         public int TableSize { get; set; }
     }
-    internal class Kitchen
+    public class Kitchen
     {
         public static void kitchen()
         {
-            string FrameTop = "-";
             string kitchen = "Kitchen";
             Console.SetCursorPosition((Console.WindowWidth - kitchen.Length) / 2, Console.CursorTop);
             Console.WriteLine("| " + kitchen + " |");
             Console.SetCursorPosition((Console.WindowWidth - kitchen.Length) / 2, Console.CursorTop);
             for (int i = 0; i < kitchen.Length + 4; i++) // printar kitchen koden högst upp
             {
-                Console.Write(FrameTop);
+                Console.Write("-");
             }
         }
     }
-    internal class BigTable
+    public class bigtables
     {
         public static void BigTables(string[] waiter, string booked, int grupp)
         {
             string[] guests = { "+1", "+2", "+3", "Empty" };
             Random rnd = new Random();
             int sidolängd = 0;
-            string FrameTop = "-";
             string[,] drawArray = new string[50, 5];
             string FrameSide = "|";
             Console.WriteLine();
@@ -49,7 +47,7 @@ namespace Resturangen_Kod
             {
                 Console.Write("|"); // vänstra sidan av bordet
                 Console.SetCursorPosition((Console.WindowWidth - FrameSide.Length) - newsidolängd, Console.CursorTop); // räknar ut vart den ska placera den sista |
-                Console.WriteLine(FrameSide); // högra sidan av bordet kan lika gärna stå -
+                Console.WriteLine("|"); // högra sidan av bordet kan lika gärna stå -
                 if (j == 0)
                 {
                     // skriver ut namnet av gästen (den som bokar)
@@ -68,7 +66,7 @@ namespace Resturangen_Kod
                     }
                     // det första sällskapet till den bokade gästen
                     Console.SetCursorPosition((Console.WindowWidth - FrameSide.Length) - newsidolängd, Console.CursorTop);
-                    Console.WriteLine(FrameSide); // lägger ut den sista |
+                    Console.WriteLine("|"); // lägger ut den sista |
                 }
                 if (j == 3)
                 {
@@ -93,7 +91,7 @@ namespace Resturangen_Kod
                         Console.Write(guests[3]);
                     }
                     Console.SetCursorPosition((Console.WindowWidth - FrameSide.Length) - newsidolängd, Console.CursorTop);
-                    Console.WriteLine(FrameSide);
+                    Console.WriteLine("|");
                 }
             }
 
@@ -103,17 +101,14 @@ namespace Resturangen_Kod
             }
         }
     }
-    internal class SmallTables
+    public class smallTables
     {
-        public static void SmallTable(string[] waiter, string booked, int grupp)
+        public static void SmallTables(string[] waiter, string booked, int grupp)
         {
             string[] guests = { "+1", "+2", "+3", "Empty" };
             Random rnd = new Random();
             int sidolängd2 = 0;
-            string FrameTop = "-";
             string[,] drawArray2 = new string[30, 2];
-            string FrameSide = "|";
-            Console.SetCursorPosition((Console.WindowWidth + 39) / 2, Console.CursorTop);
             Console.SetCursorPosition((Console.WindowWidth + 39) / 2, Console.CursorTop);
             for (int f = 0; f < drawArray2.GetLength(0); f++) // andra bordet
             {
@@ -127,7 +122,7 @@ namespace Resturangen_Kod
                 Console.SetCursorPosition((Console.WindowWidth + 39) / 2, Console.CursorTop);
                 Console.Write("|");
                 Console.SetCursorPosition((Console.WindowWidth + 37) - newsidolängd2, Console.CursorTop); // räknar ut vart den ska placera den sista |
-                Console.WriteLine(FrameSide); // högra sidan av bordet kan lika gärna stå -
+                Console.WriteLine("|"); // högra sidan av bordet kan lika gärna stå -
                 if (o == 0)
                 {
                     Console.SetCursorPosition((Console.WindowWidth + 39) / 2, Console.CursorTop);
@@ -150,7 +145,7 @@ namespace Resturangen_Kod
                         Console.Write(guests[3]);
                     }
                     Console.SetCursorPosition((Console.WindowWidth + 37) - newsidolängd2, Console.CursorTop); // räknar ut vart den ska placera den sista |
-                    Console.WriteLine(FrameSide); // andra bordets högra sida
+                    Console.WriteLine("|"); // andra bordets högra sida
                 }
             }
 
@@ -162,12 +157,10 @@ namespace Resturangen_Kod
             }
         }
     }
-    internal class Entre
+    public class Entre
     {
-        public static void EntreMethod()
+        public static void entre()
         {
-            string FrameSide = "|";
-            string FrameTop = "-";
             string entre = "Entre";
             Console.WriteLine();
             for (int i = 0; i < 3; i++)
@@ -179,7 +172,7 @@ namespace Resturangen_Kod
             Console.SetCursorPosition((Console.WindowWidth - entre.Length) / 2, Console.CursorTop);
             for (int i = 0; i < entre.Length + 4; i++) // printar kitchen koden högst upp
             {
-                Console.Write(FrameTop);
+                Console.Write("-");
             }
             Console.WriteLine();
             Console.SetCursorPosition((Console.WindowWidth - entre.Length) / 2, Console.CursorTop);

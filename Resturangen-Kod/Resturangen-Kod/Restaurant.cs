@@ -18,57 +18,11 @@ namespace Resturangen_Kod
         public static string[] allanamn = new string[30];
         public static string[] allanamnStora = new string[30];
         public static string[] allanamnLiten = new string[30];
-
-        //public List<Group> Groups = new List<Group>();
         public List<Group> Groups = new List<Group>();
         public static string[] gruppledare = new string[30];
         public static List<int> ints1 = new List<int>();
         public static List<int> bord1 = new List<int>();
         public static List<int> bord2 = new List<int>();
-        public static List<Person> CreatingGroups()
-        {
-            string[] names = Person.GetNames();
-            List<Person> Guests = Person.CreatingGuests(names);
-            Queue queueLobbyGroups = new Queue();
-            Random rnd = new Random();
-            string[] GUITest = new string[30];
-            int nrOfGroups = 30;
-            int peoplePerGroup = 0;
-            int counter = 0;
-
-            int grpSize = 1;
-
-
-            //Tar in Namn, skapar grupper på en random storlek, samt ger varje person en balance
-            for (int i = 0; i < nrOfGroups; i++)
-            {
-                int ökning = 0;
-                peoplePerGroup = rnd.Next(1, 5);
-                Console.WriteLine();
-                Console.WriteLine("Grupp: " + i);
-                for (int j = 0; j < peoplePerGroup; j++)
-                {
-                    if (counter < names.Length)
-                    {
-                        
-                        Console.WriteLine(Guests[counter].Name + " " + grpSize);
-                        queueLobbyGroups.Enqueue(Guests[counter]);
-                        grpSize++;
-                        counter++;
-                    }
-                    else if (counter >= Guests.Count)
-                    {
-                        Console.WriteLine("Slut på gäster");
-                        break;
-                    }
-                }
-                grpSize = 1;
-                Console.WriteLine("------------------");
-
-            }
-            return Guests;
-
-        }
         public static string[] CreatingGroupss()
         {
             string[] names = Person.GetNames();
@@ -170,6 +124,25 @@ namespace Resturangen_Kod
             }
             return names;
         }
+
+    }
+    public class FoodProcess : Restaurant
+    {
+        public static List<Food> GuestOrder(int grpNumber)
+        {
+            Food.CreatingMenu();
+            List<Food> orderdFood = new List<Food>();
+            var item = ints1[grpNumber];
+            Random rnd = new Random();
+            for (int i = 0; i < item; i++)
+            {
+                //Foods.Menu[rnd.Next(Foods.Menu.Count)] = orderdFood;
+                orderdFood.Add(Food.Menu[rnd.Next(Food.Menu.Count)]);
+            }
+            return orderdFood;
+        }
+
+
 
     }
 }

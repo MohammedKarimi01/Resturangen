@@ -36,7 +36,7 @@ namespace Resturangen_Kod
             if(food.Cooked == false)
             {
                 Console.WriteLine("Maten tillagas.");
-                Thread.Sleep(3000);
+                //Thread.Sleep(3000);
                 food.Cooked = true;
             }
             else if(food.Cooked == true)

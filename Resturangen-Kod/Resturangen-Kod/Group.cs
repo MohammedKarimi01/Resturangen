@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Resturangen_Kod
 {
-    internal class Group
+    public class Group
     {
         private int groupsize;
 
