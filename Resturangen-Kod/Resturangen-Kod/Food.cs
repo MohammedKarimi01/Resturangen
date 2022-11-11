@@ -8,6 +8,7 @@ namespace Resturangen_Kod
 {
     public class Food
     {
+        //Alla properties för food
         public string FoodName { get; set; }
         public int FoodPrice { get; set; }
         public bool Cooked { get; set; }
@@ -23,6 +24,7 @@ namespace Resturangen_Kod
             TabelDestination = tabeldestination;
             FoodQuality = foodquality;
         }
+        // Skapar Menyn till resturangen, samt lägger in 3 rätter med olika vilkor
         public static List<Food> CreatingMenu()
         {
             List<Food> Menu = new List<Food>();

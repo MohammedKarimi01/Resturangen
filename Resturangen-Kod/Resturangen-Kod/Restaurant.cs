@@ -51,6 +51,7 @@ namespace Resturangen_Kod
                     {
                         if (j == 0)
                         {
+                            //Tar första personens namn i gruppen och sätter den som "Groupleader".
                             gruppledare[r] = names[counter];
                             r++;
                         }
@@ -76,6 +77,7 @@ namespace Resturangen_Kod
                         grpSize++;
                         counter++;
                     }
+                    //Gör koden lite mer säker, om det får slut på gäster så säger programmet det istället för att krachsa
                     else if (counter >= names.Length)
                     {
                         Console.WriteLine("Slut på gäster");
@@ -85,11 +87,13 @@ namespace Resturangen_Kod
                 test++;
                 List<int> ints = new List<int>();
                 grpSize -= 1;
-                ints1.Add(grpSize);
+                ints1.Add(grpSize); // Stoppar in grupp storleken på en lista utav INTS
                 grpSize = 1;
             }
+            //Stoppar rätt gruppstorlek vid rätt bord så alla får plats
             for (int i = 0; i < ints1.Count; i++)
             {
+                
                 if (ints1[i] <= 2)
                 {
                     bord2.Add(i);
@@ -100,7 +104,7 @@ namespace Resturangen_Kod
             {
                 Console.WriteLine(bord2[i]);
             }
-            Console.WriteLine("--------------------------------");
+            //Stoppar rätt gruppstorlek vid rätt bord så alla får plats
             for (int i = 0; i < ints1.Count; i++)
             {
 
@@ -114,10 +118,12 @@ namespace Resturangen_Kod
                 Console.WriteLine(bord1[i]);
                 
             }
+            //Stoppar in stroa gruppen i en stor queue
             foreach (object q in allanamnStora)
             {
                 queueStora.Enqueue(q);
             }
+             //Stoppar in lilla gruppen i en liten queue 
             foreach (object q in allanamnLiten)
             {
                 queueLiten.Enqueue(q);
@@ -128,6 +134,7 @@ namespace Resturangen_Kod
     }
     public class FoodProcess : Restaurant
     {
+        //Tar kudens order
         public static List<Food> GuestOrder(int grpNumber)
         {
             Food.CreatingMenu();

@@ -52,6 +52,7 @@ namespace Resturangen_Kod
         {
             Competence = competence;
         }
+        //Skapar kockar, ger dem vilkor och stoppar in det i en lista
         public static List<Person> CreatingChefs()
         {
            
@@ -72,6 +73,7 @@ namespace Resturangen_Kod
             return Chefs;
         }
     }
+    //Skapar servitörer, ger dem vilkor samt stoppar in dem i en lista
     public class Waiter 
     {
         public Waiter(string name, int servicelevel, bool busy) 
@@ -105,7 +107,7 @@ namespace Resturangen_Kod
 
     public class Guests : Person
     {
-
+        //Skapar gäster, med olika vilkor 
         public Guests(string name, int balance, bool satisfaction) : base(name)
         {
             Name = name;
@@ -113,8 +115,6 @@ namespace Resturangen_Kod
             Satisfaction = satisfaction;
 
         }
-      
-
         public int GroupSize { get; set; }
         public int Balance { get; set; }
         public bool Satisfaction { get; set; }
