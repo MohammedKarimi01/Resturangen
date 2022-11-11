@@ -8,9 +8,6 @@
             todoList[0] = "Diska";
             todoList[1] = "Mata katten";
             todoList[2] = "Städa";
-
-         //   Window.Draw("Att göra", 5, 5, todoList);
-
         }
     }
 }

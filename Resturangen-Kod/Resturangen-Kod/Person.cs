@@ -105,13 +105,6 @@ namespace Resturangen_Kod
             Satisfaction = satisfaction;
 
         }
-        //public static int GetMoney()
-        //{
-        //    Random rnd = new Random();
-        //    int amountofmoney = 0;
-        //    amountofmoney = rnd.Next(100,1000);
-        //    return amountofmoney;
-        //}
       
 
         public int GroupSize { get; set; }
@@ -119,6 +112,5 @@ namespace Resturangen_Kod
         public bool Satisfaction { get; set; }
 
         //Ändrar på propen senare.
-        //public bool Allergies { get; set; }
     }
 }
