@@ -7,10 +7,11 @@ using System.Collections;
 
 namespace Resturangen_Kod
 {
-    internal class Person
+    public class Person
     {
         public string Name { get; set; }
-        public Person (string name)
+        public string Order { get; set; }
+        public Person(string name)
         {
             Name = name;
         }
@@ -43,40 +44,46 @@ namespace Resturangen_Kod
     }
     
         
-    internal class Chefs : Person
+    public class Chefs
     {
         // Kockens kompetens är en rating från 1-10
         public int Competence { get; set; }
-        public Chefs(string name, int competence) : base(name)
+        public Chefs(int competence)
         {
             Competence = competence;
         }
-        public static void CreatingChefs()
+        public static List<Person> CreatingChefs()
         {
+           
             List<Person> Chefs = new List<Person>();
-            string[] ChefNames = { "Mohammed", "Thom", "Bilal", "Daniel", "Erik", };
+
+            string[] ChefNames = {"Mohammed", "Thom", "Bilal", "Daniel", "Erik"};
+
+
+            int _Competence = 1;
             Random rnd = new Random();
 
             foreach (string name in ChefNames)
             {
-                int _Competence = 1;
-                for (int i = 0; i < 1; i++)
-                {
-                    _Competence = rnd.Next(5, 11);
-                }
-                Chefs.Add(new Person(name));
+                _Competence = rnd.Next(5, 11);
+                Chefs.Add(new Person(name + " " + _Competence));
+                Console.WriteLine(name + " " + _Competence);
             }
+            return Chefs;
         }
     }
-    internal class Waiter : Person
+    public class Waiter 
     {
-        public Waiter(string name, int servicelevel) : base(name)
+        public Waiter(string name, int servicelevel, bool busy) 
         {
+            Name = name;
             ServiceLevel = servicelevel;
+            Busy = busy;
+            
         }
-        public static List<Person> CreatingWaiter()
+        public static List<Waiter> CreatingWaiters()
         {
-            List<Person> Waiters = new List<Person>();
+            List<Waiter> Waiters = new List<Waiter>();
             string[] WaiterNames = { "Elias", "Emma", "Kenneth", };
             Random rnd = new Random();
             foreach (string name in WaiterNames)
@@ -86,16 +93,17 @@ namespace Resturangen_Kod
                 {
                     _ServiceLvL = rnd.Next(5,11);
                 }
-                Waiters.Add(new Person(name + " " + _ServiceLvL));
+                Waiters.Add(new Waiter(name, _ServiceLvL, false));
             }
             return Waiters;
         }
-
         // Servitörens Service level är en rating från 1-10
         public int ServiceLevel { get; set; }
-
+        public bool Busy { get; set; }
+        public string Name { get; set; }
     }
-    internal class Guests : Person
+
+    public class Guests : Person
     {
 
         public Guests(string name, int balance, bool satisfaction) : base(name)

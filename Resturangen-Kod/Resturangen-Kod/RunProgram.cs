@@ -14,6 +14,7 @@ namespace Resturangen_Kod
     internal class RunProgram
     {
         public static int increase = 0;
+
         public static void StartProgram()
         {
             string[] Händelser = new string[5];
@@ -112,6 +113,12 @@ namespace Resturangen_Kod
                     else if (waiterWasThere[Bord] == false && start > 0 && VartWaiterStår == -1 && taNyBeställning == tester && NästaServering[Bord] == 0 && ökningBord[Bord] < Restaurant.bord1.Count) // alla andra bord
                     {
                         taNyBeställning = -2;
+                        BigTable.BigTables(waiter, Restaurant.gruppledare[Restaurant.bord1[ökning]], Restaurant.ints1[Restaurant.bord1[ökning]]);
+                        if (Bord == 0)
+                        {
+                            Console.Write(waiter[0]);
+                            FoodProcess.GuestOrder(0);
+                        }
                         Restaurant.queueStora.Dequeue();
                         Console.SetCursorPosition(Console.WindowWidth - 120, Console.CursorTop);
                         Console.WriteLine(waiter[0]);
@@ -163,6 +170,12 @@ namespace Resturangen_Kod
                         bigtables.BigTables(waiter, Restaurant.gruppledare[ökning], 2); // empty
                     }
                     if (waiterWasThereBord2[Bord] == false && Bord == 0 && NästaServering2[Bord] == 0 && ökningBord2[Bord] < Restaurant.bord2.Count)
+                    }
+                    else if (ökning >= Restaurant.bord1.Count || start == 0)
+                    {
+                        BigTable.BigTables(waiter, Restaurant.gruppledare[ökning], 2);
+                    }
+                    if (ökning < Restaurant.bord2.Count && start > 0)
                     {
                         Restaurant.queueLiten.Dequeue();
                         Console.SetCursorPosition(Console.WindowWidth - 40, Console.CursorTop);
@@ -197,6 +210,12 @@ namespace Resturangen_Kod
                     if (ökningBord2[Bord] < Restaurant.bord2.Count && waiterWasThereBord2[Bord] == true) // väljer ut bord 0
                     {
                         smallTables.SmallTables(waiter, Restaurant.gruppledare[Restaurant.bord2[ökningBord2[Bord]]], Restaurant.ints1[Restaurant.bord2[ökningBord2[Bord]]]);
+                        if (Bord == 0)
+                        {
+                            Console.Write(waiter[1]);
+
+                        }
+                        queue.Dequeue();
                     }
                     else if (NästaServering2[Bord] == 1)
                     {
@@ -229,6 +248,19 @@ namespace Resturangen_Kod
                         if (tester > 4)
                         {
                             tester = 0;
+                    else if (ökning >= Restaurant.bord2.Count || start == 0)
+                    {
+                        SmallTables.SmallTable(waiter, Restaurant.gruppledare[ökning], 3);
+                    }
+                    if (start > 0)
+                    {
+                        if (ökning >= 29)
+                        {
+                            ökning = 29;
+                        }
+                        else
+                        {
+                            ökning++;
                         }
                     }
                 }
@@ -236,12 +268,18 @@ namespace Resturangen_Kod
                 Entre.entre();
                 Console.SetCursorPosition(Console.WindowWidth / 2 - 2, Console.CursorTop - 3);// postion för waiter
                 if (queue.Count == 0)
+                Entre.EntreMethod();
+                Console.SetCursorPosition(Console.WindowWidth / 2 -2, Console.CursorTop-3);// postion för waiter
+                if (queue.Count == 0) 
                 {
                     Console.WriteLine(""); // waiter2 försvinner när det är noll i den allmänna queue
                 }
                 else
                 {
                     if (waiter2Used == true)
+                    Console.WriteLine(waiter[2]);     
+
+                    if (start == 0)
                     {
                         Console.WriteLine();
                     }
@@ -302,6 +340,11 @@ namespace Resturangen_Kod
                 //{
                 //    Console.WriteLine(qDone);
                 //}
+                    Console.SetCursorPosition(75, 70 - nedrerad);
+                    Console.WriteLine(qLiten);
+                    nedrerad--;
+                }
+                nedrerad = -2;
                 Console.ReadKey();
             }
             }

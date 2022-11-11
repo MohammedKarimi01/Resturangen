@@ -6,15 +6,20 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Collections.Specialized;
+
 namespace Resturangen_Kod
 {
-    internal class Restaurant
+    public class Restaurant
     {
+        public static List<Person> LobbyGroups = new List<Person>();
         public static Queue queueStora = new Queue();
         public static Queue queueLiten = new Queue();
         public static string[] allanamn = new string[30];
         public static string[] allanamnStora = new string[30];
         public static string[] allanamnLiten = new string[30];
+
+        //public List<Group> Groups = new List<Group>();
         public List<Group> Groups = new List<Group>();
         public static string[] gruppledare = new string[30];
         public static List<int> ints1 = new List<int>();
@@ -109,7 +114,9 @@ namespace Resturangen_Kod
                             if (j == peoplePerGroup-1)
                             {
                                 räknaStor++;
+                              
                             }
+                          
                         }
                         allanamn[i] += names[counter] + " ";
                         grpSize++;
@@ -151,6 +158,7 @@ namespace Resturangen_Kod
             for (int i = 0; i < bord1.Count; i++)
             {
                 Console.WriteLine(bord1[i]);
+                
             }
             foreach (object q in allanamnStora)
             {

@@ -27,7 +27,7 @@ namespace Resturangen_Kod
             }
         }
     }
-    internal class bigtables
+    internal class BigTable
     {
         public static void BigTables(string[] waiter, string booked, int grupp)
         {
@@ -103,9 +103,9 @@ namespace Resturangen_Kod
             }
         }
     }
-    internal class smallTables
+    internal class SmallTables
     {
-        public static void SmallTables(string[] waiter, string booked, int grupp)
+        public static void SmallTable(string[] waiter, string booked, int grupp)
         {
             string[] guests = { "+1", "+2", "+3", "Empty" };
             Random rnd = new Random();
@@ -164,7 +164,7 @@ namespace Resturangen_Kod
     }
     internal class Entre
     {
-        public static void entre()
+        public static void EntreMethod()
         {
             string FrameSide = "|";
             string FrameTop = "-";
